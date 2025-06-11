@@ -122,4 +122,3 @@ This project is intended for educational use only. It does not provide real medi
 
 ---
 
-**Developed by Prerna Arora**
