@@ -72,6 +72,55 @@ pipenv run python gradio_app.py
 
 The app will launch at [http://127.0.0.1:7860](http://127.0.0.1:7860).
 
+## Run With Docker
+### 🛠️ 1. Build the Docker Image
+```sh
+docker build -t medibot .
+```
+### 🔐 2. Log In to Docker Hub (if pushing to remote registry)
+```sh
+docker build -t ai-medi-app .
+```
+### 🚀 3. Tag & Push the Image to Docker Hub
+Replace prerna2424 with your Docker Hub username:
+```sh
+docker tag ai-medi-app prerna2424/ai-medi-app:latest
+docker push prerna2424/ai-medi-app:latest
+```
+### 📥 4. Pull the Image (if deploying elsewhere)
+To pull your image on another machine or cloud server:
+```sh
+To pull your image on another machine or cloud server:
+```
+### ▶️ 5. Run the Container
+Make sure to pass required environment variables like your Groq API key:
+```sh
+docker run -d ^
+  -p 1234:7860 ^
+  -e GROQ_API_KEY="your_groq_api_key_here" ^
+  --name ai-medi-app-container ^
+  prerna2424/ai-medi-app
+```
+✅ This will expose the app at http://localhost:1234
+
+### 🛑 6. Stop or Remove the Container
+
+```sh
+docker stop ai-medi-app-container
+```
+
+To remove:
+
+```sh
+docker rm ai-medi-app-container
+```
+**Note:**
+1. Make sure you replace "your_groq_api_key_here" with your actual key.
+
+2. If you also require ELEVENLABS_API_KEY, add -e ELEVENLABS_API_KEY="your_key" in the docker run command.
+
+3. Ensure Docker Desktop or Engine is running before any of these steps.
+
 ## 🧪 How to Use
 
 
